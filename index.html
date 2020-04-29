@@ -11,7 +11,7 @@
             <h2>Layout</h2>
             <p><strong>Please create a layout 3 X 1 layout with height adjusted based on the content height. Within each of the block, it should have three sections. First and third section should have a fixed height of 50 px and content within them should not wrap and shows ellipsis if content is too long.</strong></p>
             <p>Exmaple:</p>
-            <!-- <div class="exmaple-1">
+            <div class="exmaple-1">
                 <div class="cell">
                     <div class="cell-header">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat, lacus a malesuada tempor, elit tellus dictum leo, eu dapibus elit sem sed ipsum.</div>
                     <div class="cell-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed eros at mauris rhoncus vehicula et vitae diam.</div>
@@ -19,8 +19,8 @@
                 </div>
                 <div class="cell">
                     <div class="cell-header">Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi luctus nulla id justo pharetra, a elementum neque egestas.</div>
-                    <div class="cell-body">Vestibulum erat neque, molestie id blandit vitae, egestas eu nisl. Donec id ex tincidunt, placerat nunc quis, luctus risus. Aenean ut nunc id risus convallis tempus quis eget dui. Quisque sit amet finibus nisi. Curabitur mattis molestie sagittis. Mauris non tortor in lorem varius lobortis et eget sem. Vivamus ut mauris metus. Mauris nulla metus, rutrum ac mi sit amet, feugiat lobortis massa. Pellentesque ut tempor ipsum. Praesent hendrerit suscipit libero ac laoreet. Morbi aliquet urna in ex fringilla porttitor. Proin ac auctor nibh. Etiam ultricies sapien at leo consequat condimentum. Pellentesque dictum nibh ornare egestas posuere. Ut vehicula, risus vitae efficitur semper, ex nisl aliquet leo, ac fringilla arcu sapien nec neque.
-
+                    <div class="cell-body">
+                        Vestibulum erat neque, molestie id blandit vitae, egestas eu nisl. Donec id ex tincidunt, placerat nunc quis, luctus risus. Aenean ut nunc id risus convallis tempus quis eget dui. Quisque sit amet finibus nisi. Curabitur mattis molestie sagittis. Mauris non tortor in lorem varius lobortis et eget sem. Vivamus ut mauris metus. Mauris nulla metus, rutrum ac mi sit amet, feugiat lobortis massa. Pellentesque ut tempor ipsum. Praesent hendrerit suscipit libero ac laoreet. Morbi aliquet urna in ex fringilla porttitor. Proin ac auctor nibh. Etiam ultricies sapien at leo consequat condimentum. Pellentesque dictum nibh ornare egestas posuere. Ut vehicula, risus vitae efficitur semper, ex nisl aliquet leo, ac fringilla arcu sapien nec neque.
                         Donec iaculis pretium nisl. Nulla vitae felis aliquet sapien tempor mattis. Integer erat elit, efficitur quis ante eu, viverra pharetra ex. Mauris quis tellus sed nisl auctor auctor. Nam eget dapibus magna. Nulla facilisi. Proin in urna sapien. Morbi at facilisis enim. In nisi lectus, faucibus sit amet venenatis nec, condimentum id dolor. Suspendisse varius, ipsum eu vestibulum commodo, lectus erat congue odio, vitae semper dui massa nec magna. Nunc ut ex velit. Morbi semper felis non lectus elementum hendrerit.</div>
                     <div class="cell-footer">Curabitur et est justo. Phasellus eleifend tempor sagittis. Mauris hendrerit, velit eget fringilla porta, ligula ipsum pharetra orci, porttitor venenatis dui tellus at elit.</div>
                 </div>
@@ -29,7 +29,7 @@
                     <div class="cell-body">Fusce aliquam diam eget laoreet mollis. Maecenas gravida elit sit amet lorem ultrices pretium. Etiam eget luctus urna. Aliquam varius, est id eleifend lobortis, risus diam interdum arcu, sit amet iaculis quam leo a leo. Fusce maximus finibus volutpat. Nulla nec fermentum lacus. Nam molestie nec dolor id fermentum.</div>
                     <div class="cell-footer">Integer at ullamcorper felis, in feugiat elit. Ut eleifend eros at enim gravida molestie. Etiam eu elit et mauris pharetra convallis. Ut id orci at ex dapibus sodales. Proin id ex non elit interdum fermentum quis id lectus.</div>
                 </div>
-            </div> -->
+            </div>
             <img src="layout.jpg"/>
         </section>
         <section>
@@ -55,17 +55,31 @@
                                 console.log('clicked on ', i);
                             });
                         }
+
+                        // My Changes
+                        buttons.forEach((btn, index) => {
+                            btn.addEventListener("click", (event) => {
+                                console.log('clicked on', index + 1)
+                            })
+                        })
                 </code>
             </pre>
+            <p>Solution: It's due the way that query selector works beacuse only target the last element</p>
         </section>
         <script>
             var buttons = document.querySelectorAll('button');
 
-            for (var i = 0; i < buttons.length; i++) {
+            buttons.forEach((btn, index) => {
+                btn.addEventListener("click", (event) => {
+                    console.log('clicked on', index + 1)
+                })
+            })
+
+            /*for (var i = 0; i < buttons.length; i++) {
                 buttons[i].addEventListener('click', function () {
                     console.log('clicked on ', i);
                 });
-            }
+            }*/
         </script>
     </body>
 </html>
